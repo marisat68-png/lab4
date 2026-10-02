@@ -19,9 +19,8 @@ public class TextNote extends Note {
         return getTitle() + ":" + getContent() + "(" + formatDate() + ")";
     }
 
-    // Compatibility method for older code
+
     public void setDate(String date) {
-        // Since we use Date object now, we could parse it, 
-        // but for now let's just ignore it or set a default.
+
     }
 }

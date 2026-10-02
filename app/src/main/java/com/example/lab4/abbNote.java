@@ -15,11 +15,10 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.Date;
 
 public class abbNote extends AppCompatActivity {
-   Button addNot;
-   EditText title,content;
-   TextView showNote;
+    Button addNot;
+    EditText title, content;
+    TextView showNote;
     NoteController controller;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,18 +38,12 @@ public class abbNote extends AppCompatActivity {
 
         addNot.setOnClickListener(v -> {
             //get data from user (EditText)
-            String str0fTitle = title.getText().toString();
+            String strOfTitle = title.getText().toString();
             String strOfContent = content.getText().toString();
             String strOfDate = new Date().toString();
 
-            //set data to TextNote Class
-            TextNote tNote = new TextNote();
-            tNote.setTitle(str0fTitle);
-            tNote.setDate(strOfDate);
-            tNote.setContent(strOfContent);
-            controller.saveNote(str0fTitle, strOfContent, strOfDate);
-            //show not (by method of class)
-            //  showNote.setTextDirection(tNote.getSummary());
+            // Delegate to NoteController (MVC Controller)
+            controller.saveNote(strOfTitle, strOfContent, strOfDate);
         });
     }
     void displayTextNote(TextNote note) {

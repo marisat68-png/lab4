@@ -3,7 +3,7 @@ package com.example.lab4;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CheckListNote {
+public class CheckListNote extends Note {
     private List<String> checkList;
 
     public CheckListNote(String title, String content) {
@@ -20,7 +20,6 @@ public class CheckListNote {
     }
 
     public String getSummary() {
-        return "CheckListNote: " + getClass() + " (" + checkList.size() + " items)";
+        return "CheckListNote: " + getTitle() + " (" + checkList.size() + " items) - " + formatDate();
     }
 }
-
