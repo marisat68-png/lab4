@@ -1,17 +1,16 @@
-# Walkthrough - MVC Software Architectural Pattern Implementation
+# Walkthrough - Back Button Addition
 
-I have successfully implemented the Model-View-Controller (MVC) architectural pattern in the application.
+I have added a Back button to the Add Note activity (`abbNote`) to allow returning to the previous screen.
 
 ## Changes Made
 
-### 1. Model Component (`CheckListNote`, `TextNote`, `Note`)
-- **[CheckListNote.java](file:///D:/New folder/lab4.37/app/src/main/java/com/example/lab4/CheckListNote.java)**: Updated to inherit from `Note`, enabling support for title, content, date formatting, and summary generation alongside `TextNote`.
+### 1. UI Layout
+- **[activity_abb_note.xml](file:///D:/New folder/lab4.37/app/src/main/res/layout/activity_abb_note.xml)**:
+  - Added a `Button` (`id/buttonBack`) with text "Back".
 
-### 2. Controller Component (`NoteController`)
-- **[NoteController.java](file:///D:/New folder/lab4.37/app/src/main/java/com/example/lab4/NoteController.java)**: Acts as the Controller between the View (`abbNote`) and Models (`TextNote`, `CheckListNote`). Provides methods like `saveNote()` and `saveCheckListNote()` to process and forward note data to the View.
-
-### 3. View Component (`abbNote` / AddNoteActivity)
-- **[abbNote.java](file:///D:/New folder/lab4.37/app/src/main/java/com/example/lab4/abbNote.java)**: Updated to delegate note creation logic to `NoteController` and display summaries via polymorphism (`displayTextNote(Note note)`).
+### 2. Activity Logic
+- **[abbNote.java](file:///D:/New folder/lab4.37/app/src/main/java/com/example/lab4/abbNote.java)**:
+  - Configured `backButton` click listener to call `finish()`, returning the user to the previous activity.
 
 ## Verification Results
 

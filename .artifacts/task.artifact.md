@@ -1,6 +1,4 @@
-# Task List - MVC Implementation
+# Task List - Change Launcher Activity
 
-- [x] Update CheckListNote model to inherit from Note
-- [x] Refine NoteController to manage TextNote and CheckListNote models and interact with abbNote view
-- [x] Update abbNote view to use NoteController for note creation and display
+- [x] Update AndroidManifest.xml to set BrowseNoteActivity as the launcher activity
 - [x] Verify build with `./gradlew assembleDebug`

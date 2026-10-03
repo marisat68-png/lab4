@@ -2,8 +2,10 @@ package com.example.lab4;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,8 +18,7 @@ public class MainActivity extends AppCompatActivity {
     Button browseNoteButton;
     Button addNoteButton;
     ImageView logoImage;
-
-
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
         note1.setTitle("Lab3");
         note1.setContent("design diagram,create class and object");
-        // note1.createdData = "3 july 2026"; // Property is now private or redundant
         note1.getSummary();
 
         TextNote noteA = new TextNote();
@@ -59,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
             startActivity(aboutMe);
         });
 
-        // Browse
+        progressBar = findViewById(R.id.progressBar);
+
+        // Browse with Thread and ProgressBar (Lab 6)
         browseNoteButton = findViewById(R.id.button7);
         browseNoteButton.setOnClickListener(v -> {
             Intent browseNote = new Intent(getApplicationContext(), BrowseNoteActivity.class);
@@ -74,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         logoImage = findViewById(R.id.imageView);
-        // logoImage.setOnClickListener(R.drawable.logo); // This was wrong
         logoImage.setImageResource(R.drawable.logo);
     }
 }
