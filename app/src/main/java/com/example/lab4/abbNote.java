@@ -1,7 +1,6 @@
 package com.example.lab4;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,6 +15,7 @@ import java.util.Date;
 
 public class abbNote extends AppCompatActivity {
     Button addNot;
+    Button backButton;
     EditText title, content;
     TextView showNote;
     NoteController controller;
@@ -33,8 +33,12 @@ public class abbNote extends AppCompatActivity {
         title = findViewById(R.id.editTextText);
         content = findViewById(R.id.editTextText2);
         addNot = findViewById(R.id.button3);
+        backButton = findViewById(R.id.buttonBack);
         showNote = findViewById(R.id.editTextText3);
         controller = new NoteController(this);
+
+        // Load notes from database
+        controller.loadNotes();
 
         addNot.setOnClickListener(v -> {
             //get data from user (EditText)
@@ -44,9 +48,14 @@ public class abbNote extends AppCompatActivity {
 
             // Delegate to NoteController (MVC Controller)
             controller.saveNote(strOfTitle, strOfContent, strOfDate);
+            // Reload notes
+            controller.loadNotes();
         });
+
+        backButton.setOnClickListener(v -> finish());
     }
-    void displayTextNote(TextNote note) {
+
+    void displayTextNote(Note note) {
         showNote.setText(note.getSummary());
     }
 }

@@ -50,4 +50,8 @@ public class Note {
     public String getSummary() {
         return title;
     }
+
+    public String display() {
+        return getSummary();
+    }
 }
